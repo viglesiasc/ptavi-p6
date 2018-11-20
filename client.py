@@ -39,8 +39,8 @@ with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as my_socket:
 
     server_text = data.decode('utf-8').split(' ')
     if server_text[1] == '100':
-        line_ack = ('ACK sip: ' + SERVER_NAME + '@' + SERVER_NUMBER + ' SIP/2.0')
+        line_ack = ('ACK sip: ' + SERVER_NAME + '@' + SERVER_NUMBER
+                    + ' SIP/2.0')
         my_socket.send(bytes(line_ack, 'utf-8') + b'\r\n')
 
         data = my_socket.recv(1024)
-    
